@@ -1,3 +1,7 @@
 export * from './Home'
 export * from './About'
 export * from './Spin'
+export * from './Counter'
+export * from './VBucks'
+export * from './SaveWorld'
+export * from './BattePass'

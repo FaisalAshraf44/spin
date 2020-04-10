@@ -20,7 +20,7 @@ export const Home = (props) => {
         />
       </TouchableWithoutFeedback>
       <View style={styles.bucksContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>props.navigation.navigate('Counter')}>
           <Image
             source={require('../Assets/bucks1.png')}
             resizeMode="contain"

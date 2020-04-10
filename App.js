@@ -3,7 +3,15 @@ import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Splash from './App/Screens/Splash';
-import {Home, About, Spin} from './App/Screens';
+import {
+  Home,
+  About,
+  Spin,
+  Counter,
+  VBucks,
+  SaveWorld,
+  BattlePass,
+} from './App/Screens';
 const Stack = createStackNavigator();
 
 function App() {
@@ -31,6 +39,30 @@ function App() {
         <Stack.Screen
           name="Spin"
           component={Spin}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="Counter"
+          component={Counter}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="VBucks"
+          component={VBucks}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="SaveWorld"
+          component={SaveWorld}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="BattlePass"
+          component={BattlePass}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
