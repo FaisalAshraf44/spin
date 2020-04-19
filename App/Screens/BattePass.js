@@ -1,64 +1,112 @@
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
-    Image,
-  } from 'react-native';
-  import React, {Component, useState, useEffect} from 'react';
-  import {height, totalSize, width} from 'react-native-dimension';
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+  Image,
+  TextInput,
+  Alert
+} from 'react-native';
+import React, { Component, useState, useEffect } from 'react';
+import { height, totalSize, width } from 'react-native-dimension';
+
+export const BattlePass = (props) => {
+  const [name, setName] = useState("")
   
-  export const BattlePass = (props) => {
-    return (
-      <View style={styles.container}>
-        <TouchableWithoutFeedback
-          onPress={() => props.navigation.navigate('About')}>
-          <Image
-            source={require('../Assets/share.png')}
-            resizeMode="contain"
-            style={styles.share}
-          />
-        </TouchableWithoutFeedback>
+  return (
+    <View style={styles.container}>
+      <TouchableWithoutFeedback
+        onPress={() => props.navigation.navigate('About')}>
         <Image
-          source={require('../Assets/battlePassText.png')}
+          source={require('../Assets/share.png')}
           resizeMode="contain"
-          style={styles.aboutText}
+          style={styles.share}
         />
-  
-        <View style={{alignItems: 'center', marginTop: height(16)}}>
-          <TouchableOpacity>
-            <Image
-              source={require('../Assets/letsCount.png')}
-              resizeMode="contain"
-              style={{
-                height: totalSize(10),
-                width: totalSize(32),
-              }}
-            />
-          </TouchableOpacity>
-        </View>
+      </TouchableWithoutFeedback>
+      <Image
+        source={require('../Assets/battlePassText.png')}
+        resizeMode="contain"
+        style={styles.aboutText}
+      />
+      <View style={styles.searchSection}>
+        <Image style={styles.searchIcon} source={require('../Assets/battleForm.png')} />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Battle Pass Tiers"
+          onChangeText={text => setName(text)}
+          value={name}
+          underlineColorAndroid="transparent"
+          keyboardType='decimal-pad'
+        />
       </View>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    share: {
-      height: totalSize(10),
-      width: totalSize(10),
-      marginTop: height(4),
-      marginRight: width(4),
-      alignSelf: 'flex-end',
-    },
-  
-    aboutText: {
-      height: totalSize(8),
-      width: totalSize(36),
-      marginTop: height(6),
-      alignSelf: 'center',
-    },
-  });
-  
+      <View style={{ alignItems: 'center', }}>
+        <TouchableOpacity onPress={() => Alert.alert(
+          'Battle Pass Tiers Cost',
+          'This battle pass tiers amount will cost you:  ' + name * 30 + '  V-Bucks',
+          [
+            { text: 'OK', onPress: () => console.log('Ask me later pressed') },
+            { text: 'GET FREE V-BUCKS', onPress: () => props.navigation.push('WebVBucks') },
+          ],
+          { cancelable: false },
+        )}>
+          <Image
+            source={require('../Assets/letsCount.png')}
+            resizeMode="contain"
+            style={{
+              height: totalSize(10),
+              width: totalSize(32),
+            }}
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  share: {
+    height: totalSize(10),
+    width: totalSize(10),
+    marginTop: height(4),
+    marginRight: width(4),
+    alignSelf: 'flex-end',
+  },
+
+  aboutText: {
+    height: totalSize(8),
+    width: totalSize(36),
+    marginTop: height(6),
+    alignSelf: 'center',
+    marginBottom: height(16)
+  },
+  searchSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    marginHorizontal: 20,
+    borderRadius: 20,
+    borderWidth: 4,
+    borderColor: 'orange'
+  },
+  searchIcon: {
+    padding: 10,
+    width: totalSize(10),
+    height: totalSize(10)
+  },
+  input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 20,
+    backgroundColor: '#fff',
+    color: '#424242',
+    fontSize: totalSize(1.8),
+    fontWeight: "bold"
+  },
+});

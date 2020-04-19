@@ -11,7 +11,14 @@ import {
   VBucks,
   SaveWorld,
   BattlePass,
+  VBuckToDollars,
+  DollarsToVBucks,
+  DailyVBucks,
+  UpgradeLlama,
+  QuizEnd,
+  WebVBucks
 } from './App/Screens';
+import Quiz from './App/Screens/Quiz'
 const Stack = createStackNavigator();
 
 function App() {
@@ -65,6 +72,44 @@ function App() {
           component={BattlePass}
           options={{headerShown: false}}
         />
+         <Stack.Screen
+          name="VBuckToDollars"
+          component={VBuckToDollars}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="DollarsToVBucks"
+          component={ DollarsToVBucks}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DailyVBucks"
+          component={ DailyVBucks}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UpgradeLlama"
+          component={ UpgradeLlama}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={Quiz}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="QuizEnd"
+          component={QuizEnd}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="WebVBucks"
+          component={WebVBucks}
+          options={{headerShown: false}}
+        />
+       
+       
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -27,7 +27,7 @@ import {
         />
   
         <View style={{alignItems: 'center', marginTop: height(16)}}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>props.navigation.push('DailyVBucks')}>
             <Image
               source={require('../Assets/dailyVbucks.png')}
               resizeMode="contain"
@@ -38,7 +38,7 @@ import {
             />
           </TouchableOpacity>
   
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>props.navigation.push('UpgradeLlama')}>
             <Image
               source={require('../Assets/upgradeVbucks.png')}
               resizeMode="contain"

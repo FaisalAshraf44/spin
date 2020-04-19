@@ -6,13 +6,13 @@ import {
   View,
   Image,
 } from 'react-native';
-import React, {Component, useState, useEffect} from 'react';
-import {height, totalSize, width} from 'react-native-dimension';
-
+import React, { Component, useState, useEffect } from 'react';
+import { height, totalSize, width } from 'react-native-dimension';
+// import { InterstitialAd, RewardedAd, BannerAd, TestIds } from '@react-native-firebase/admob';
 export const Home = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={()=>props.navigation.navigate('About')}>
+      <TouchableWithoutFeedback onPress={() => props.navigation.navigate('About')}>
         <Image
           source={require('../Assets/about.png')}
           resizeMode="contain"
@@ -20,7 +20,7 @@ export const Home = (props) => {
         />
       </TouchableWithoutFeedback>
       <View style={styles.bucksContainer}>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Counter')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Counter')}>
           <Image
             source={require('../Assets/bucks1.png')}
             resizeMode="contain"
@@ -28,7 +28,7 @@ export const Home = (props) => {
             style={styles.bucks}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Spin')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Spin')}>
           <Image
             source={require('../Assets/bucks.png')}
             resizeMode="contain"
@@ -46,7 +46,7 @@ export const Home = (props) => {
             style={styles.options}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.push('Quiz')}>
           <Image
             source={require('../Assets/quiz.png')}
             resizeMode="contain"
@@ -63,6 +63,7 @@ export const Home = (props) => {
           />
         </TouchableOpacity>
       </View>
+      {/* <BannerAd unitId={'ca-app-pub-3940256099942544/6300978111'} /> */}
     </View>
   );
 };
@@ -92,10 +93,10 @@ const styles = StyleSheet.create({
     width: totalSize(10),
   },
   optionsContainer: {
-      flexDirection: 'row',
-      width:width(74),
-      alignSelf:'center',
-      justifyContent:'space-between',
-      marginTop:height(10)
-    },
+    flexDirection: 'row',
+    width: width(74),
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    marginTop: height(10)
+  },
 });

@@ -27,7 +27,7 @@ export const VBucks = (props) => {
       />
 
       <View style={{alignItems: 'center', marginTop: height(16)}}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>props.navigation.push('VBuckToDollars')}>
           <Image
             source={require('../Assets/vTod.png')}
             resizeMode="contain"
@@ -38,7 +38,7 @@ export const VBucks = (props) => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>props.navigation.push('DollarsToVBucks')}>
           <Image
             source={require('../Assets/dTov.png')}
             resizeMode="contain"
